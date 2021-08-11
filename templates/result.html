@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body  style="background-color: rgba(0, 0, 0, 0.767);">
+    <div class="container">
+        <h1 class="jumbotron bg-primary text-center" style="background:rgb(15, 163, 15) !important;color:white;font-family: Times New Roman, Times, serif;">Result</h1>
+        <br><br>
+    {% for key, value in result.items() %}
+     {% if key == "image" %}
+     <div class="container-fluid">
+     <img src="{{ url_for('static', filename=value) }}"  style="height: 70%;width:70%;">
+    </div>
+    {% elif key == "error" %}
+    <h2 style="color:white;font-family: Times New Roman, Times, serif;">{{value}}</h2>
+    <p style="color:white;font-family: Times New Roman, Times, serif;font-size:larger">Please provide uncorrupted picture</picture></p>
+ {% else  %}
+    
+     <h2 style="color:white;font-family: Times New Roman, Times, serif;text-align: center;">The above image is {{value}}</h2>
+    
+ {% endif %}
+
+     {% endfor %} 
+    </div>
+</body>
+</html>
